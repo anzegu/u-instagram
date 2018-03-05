@@ -3,13 +3,15 @@ class PicsController < ApplicationController
     def index
     end
     
-    def show
-    end
-    
     def new
+        @pic = Pic.new
     end
     
     def create
+        @pic = Pic.new(pic_params)
+    end
+   
+    def show
     end
     
     def edit
@@ -17,5 +19,14 @@ class PicsController < ApplicationController
     
     def update
     end
+    
+    def destroy
+    end
+    
+    private
+   
+   def pic_params
+    params.require(:pic).permit(:title, :description)
+   end
     
 end
